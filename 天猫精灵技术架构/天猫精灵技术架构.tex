@@ -122,23 +122,24 @@
   from Hardware Silicon to Cloud Intelligence}\\[2cm]
 
   \begin{tikzpicture}
+    % Layer 1（硬件）在最底部，Layer 7（应用）在最顶部
     \foreach \i/\name/\col in {
-      1/应用与生态层/layerbg7,
-      2/云端服务层/layerbg6,
-      3/AI语音算法层/layerbg5,
+      1/硬件层/layerbg1,
+      2/驱动与固件层/layerbg2,
+      3/操作系统层/layerbg3,
       4/音频前端处理层/layerbg4,
-      5/操作系统层/layerbg3,
-      6/驱动与固件层/layerbg2,
-      7/硬件层/layerbg1}{
+      5/AI语音算法层/layerbg5,
+      6/云端服务层/layerbg6,
+      7/应用与生态层/layerbg7}{
       \fill[\col] (0, \i*0.9-0.9) rectangle (9, \i*0.9);
       \node[font=\small\bfseries] at (4.5, \i*0.9-0.45) {\name};
     }
     \draw[thick] (0,0) rectangle (9, 6.3);
     \foreach \y in {0.9,1.8,...,5.4} \draw[thin,gray!50] (0,\y)--(9,\y);
-    \node[font=\footnotesize\color{gray}, right] at (9.1, 3.15) {Layer 7};
-    \node[font=\footnotesize\color{gray}, right] at (9.1, 2.25) {Layer 6};
-    \node[font=\footnotesize\color{gray}, right] at (9.1, 1.35) {Layer 5};
-    \node[font=\footnotesize\color{gray}, right] at (9.1, 0.45) {Layer 4};
+    % 右侧标注 Layer 1-7
+    \foreach \i in {1,...,7}{
+      \node[font=\footnotesize\color{gray}, right] at (9.1, \i*0.9-0.45) {Layer \i};
+    }
   \end{tikzpicture}
 
   \vfill
